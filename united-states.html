@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display Settings</title>
+  <link rel="stylesheet" href="united-states.css">
+</head>
+<body>
+  <!-- Background Container -->
+  <div class="background-container">
+    <div class="property-content">
+      <h1>Juneau Vacation Home</h1>
+      <p>Entire home with a view and beach access</p>
+    </div>
+  </div>
+
+  <!-- Region Button (will dynamically change based on selection) -->
+  <nav>
+    <button id="region-button">🇺🇸 United States</button>
+  </nav>
+
+  <!-- Modal Overlay -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="display-settings-container">
+      <button class="back-button" id="back-button">&times;</button>
+      <div class="display-settings-wrapper">
+        <h2 class="display-settings-title">Display settings</h2>
+        <p class="display-settings-warning">Changing your region could change your rewards program</p>
+        <p class="display-settings-info">To stay with your current rewards program, keep your region the same. One Key is currently only available in select regions.</p>
+        <div class="display-settings-form-group">
+          <label for="display-settings-region" class="display-settings-label">Region</label>
+          <select id="display-settings-region" class="display-settings-select">
+            <option value="united-states" data-flag="🇺🇸" data-currency="usd">United States</option>
+            <option value="canada" data-flag="🇨🇦" data-currency="cad">Canada</option>
+            <option value="united-kingdom" data-flag="🇬🇧" data-currency="gbp">United Kingdom</option>
+            <option value="australia" data-flag="🇦🇺" data-currency="aud">Australia</option>
+            <option value="japan" data-flag="🇯🇵" data-currency="jpy">Japan</option>
+            <option value="germany" data-flag="🇩🇪" data-currency="eur">Germany</option>
+            <option value="france" data-flag="🇫🇷" data-currency="eur">France</option>
+            <option value="portugal" data-flag="🇵🇹" data-currency="eur">Portugal</option>
+            <option value="brazil" data-flag="🇧🇷" data-currency="brl">Brazil</option>
+            <option value="mexico" data-flag="🇲🇽" data-currency="mxn">Mexico</option>
+            <option value="china" data-flag="🇨🇳" data-currency="cny">China</option>
+            <option value="india" data-flag="🇮🇳" data-currency="inr">India</option>
+            <option value="italy" data-flag="🇮🇹" data-currency="eur">Italy</option>
+            <option value="russia" data-flag="🇷🇺" data-currency="rub">Russia</option>
+            <option value="south-korea" data-flag="🇰🇷" data-currency="krw">South Korea</option>
+            <option value="spain" data-flag="🇪🇸" data-currency="eur">Spain</option>
+            <option value="netherlands" data-flag="🇳🇱" data-currency="eur">Netherlands</option>
+            <option value="switzerland" data-flag="🇨🇭" data-currency="chf">Switzerland</option>
+            <option value="south-africa" data-flag="🇿🇦" data-currency="zar">South Africa</option>
+            <option value="sweden" data-flag="🇸🇪" data-currency="sek">Sweden</option>
+          </select>
+        </div>
+        <div class="display-settings-form-group">
+          <label for="display-settings-currency" class="display-settings-label">Currency</label>
+          <select id="display-settings-currency" class="display-settings-select">
+            <option value="usd">USD</option>
+            <option value="cad">CAD</option>
+            <option value="gbp">GBP</option>
+            <option value="aud">AUD</option>
+            <option value="jpy">JPY</option>
+            <option value="eur">EUR</option>
+            <option value="brl">BRL</option>
+            <option value="mxn">MXN</option>
+            <option value="cny">CNY</option>
+            <option value="inr">INR</option>
+            <option value="rub">RUB</option>
+            <option value="krw">KRW</option>
+            <option value="chf">CHF</option>
+            <option value="zar">ZAR</option>
+            <option value="sek">SEK</option>
+          </select>
+        </div>
+        <button id="display-settings-save-btn" class="display-settings-save-btn">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-notification" id="toast-notification">
+    Settings saved successfully!
+  </div>
+
+  <!-- Include JavaScript -->
+  <script src="united-states.js"></script>
+</body>
+</html>
