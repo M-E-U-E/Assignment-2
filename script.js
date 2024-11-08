@@ -166,3 +166,24 @@ function changeImage(direction) {
 document.querySelectorAll('.gallery-item img').forEach((img, index) => {
     img.addEventListener('click', () => openGallery(index));
 });
+const saveButton = document.getElementById('saveButton');
+let isFavorited = false;
+
+// Check if the page was previously favorited
+if (localStorage.getItem('isFavorited') === 'true') {
+    saveButton.querySelector('p').textContent = '❤️';
+    isFavorited = true;
+}
+
+saveButton.addEventListener('click', () => {
+    if (!isFavorited) {
+        saveButton.querySelector('p').textContent = '❤️';
+        isFavorited = true;
+        localStorage.setItem('isFavorited', 'true');
+    } else {
+        saveButton.querySelector('p').textContent = '♥️';
+        isFavorited = false;
+        localStorage.setItem('isFavorited', 'false');
+    }
+});
+
