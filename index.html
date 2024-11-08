@@ -43,6 +43,7 @@
                     <b>Save</b>
                     <p>♥️</p>
                 </button>
+
             </div>
             <div class="share-modal" id="shareModal">
                 <div class="modal-content">
@@ -51,7 +52,7 @@
                         <h3>Share</h3>
                         <button class="close-button" id="closeModal">×</button>
                     </div>
-            
+
                     <!-- Property Preview -->
                     <div class="property-preview">
                         <div class="preview-images">
@@ -65,7 +66,7 @@
                             </div>
                         </div>
                     </div>
-            
+
                     <!-- Share Options -->
                     <div class="share-options">
                         <!-- Primary Share Buttons -->
@@ -83,7 +84,7 @@
                                 <span>Messenger</span>
                             </button>
                         </div>
-            
+
                         <!-- Secondary Share Buttons -->
                         <div class="share-row secondary-share">
                             <button class="share-option" data-platform="facebook">
@@ -105,7 +106,7 @@
         </div>
         <div class="gallery-container">
             <div class="gallery-grid">
-                
+
                 <div class="gallery-item">
                     <img src="image1.png" alt="Main large image" onclick="openGallery(0)">
                 </div>
@@ -121,13 +122,16 @@
                 <div class="gallery-item">
                     <img src="image5.png" alt="Bottom middle image" onclick="openGallery(4)">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" id="image6-container">
                     <img src="image6.png" alt="Bottom right image" onclick="openGallery(5)">
-                </div>
+                    <button class="action-btn gallery-button" id="view-gallery-btn" onclick="showAllImages()">
+                      <b>View Gallery</b>
+                    </button>
+                  </div>
             </div>
         </div>
         <!-- Lightbox Gallery Viewer -->
-        <div id="lightbox" class="lightbox">
+        <div id="lightbox" class="lightbox" style="display: none;">
             <span class="close" onclick="closeGallery()">&times;</span>
             <img class="lightbox-image" id="lightboxImage" src="" alt="">
             <div class="lightbox-title" id="lightboxTitle"></div>
