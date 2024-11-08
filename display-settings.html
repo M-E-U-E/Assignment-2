@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display Settings</title>
+  <link rel="stylesheet" href="united-states.css">
+</head>
+<body>
+  <!-- Background Container -->
+  <div class="background-container">
+    <div class="property-content">
+      <h1>Juneau Vacation Home</h1>
+      <p>Entire home with a view and beach access</p>
+    </div>
+  </div>
+
+  <!-- Modal Overlay -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="display-settings-container">
+      <button class="back-button" id="back-button">&times;</button>
+      <div class="display-settings-wrapper">
+        <h2 class="display-settings-title">Display settings</h2>
+        <p class="display-settings-warning">Changing your region could change your rewards program</p>
+        <p class="display-settings-info">To stay with your current rewards program, keep your region the same. One Key is currently only available in select regions.</p>
+        <div class="display-settings-form-group">
+          <label for="display-settings-region" class="display-settings-label">Region</label>
+          <select id="display-settings-region" class="display-settings-select">
+            <option value="united-states">United States</option>
+            <option value="canada">Canada</option>
+            <option value="united-kingdom">United Kingdom</option>
+            <option value="australia">Australia</option>
+            <option value="japan">Japan</option>
+            <option value="germany">Germany</option>
+            <option value="france">France</option>
+          </select>
+        </div>
+        <div class="display-settings-form-group">
+          <label for="display-settings-currency" class="display-settings-label">Currency</label>
+          <select id="display-settings-currency" class="display-settings-select">
+            <option value="usd">USD</option>
+            <option value="cad">CAD</option>
+            <option value="gbp">GBP</option>
+            <option value="aud">AUD</option>
+            <option value="jpy">JPY</option>
+            <option value="eur">EUR</option>
+          </select>
+        </div>
+        <button id="display-settings-save-btn" class="display-settings-save-btn">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-notification" id="toast-notification">
+    Settings saved successfully!
+  </div>
+
+  <script src="united-states.js"></script>
+</body>
+</html>
