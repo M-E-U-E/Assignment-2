@@ -85,8 +85,76 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-// JavaScript Gallery Functionality
-// Array of 31 images
+// Function to open the gallery lightbox
+function openGallery(index) {
+    currentIndex = index;
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxCounter = document.getElementById('lightboxCounter');
+
+    // Set the current image, title, and counter
+    lightboxImage.src = images[currentIndex].src;
+    lightboxTitle.textContent = images[currentIndex].title;
+    lightboxCounter.textContent = `${currentIndex + 1} / ${images.length}`;
+    lightbox.style.display = 'flex';
+}
+
+// Function to close the gallery lightbox
+function closeGallery() {
+    document.getElementById('lightbox').style.display = 'none';
+}
+
+// Function to navigate through the images
+function changeImage(direction) {
+    // Update current index
+    currentIndex += direction;
+
+    // Wrap around if going beyond the bounds of the array
+    if (currentIndex < 0) {
+        currentIndex = images.length - 1;
+    } else if (currentIndex >= images.length) {
+        currentIndex = 0;
+    }
+
+    // Update the lightbox content
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxCounter = document.getElementById('lightboxCounter');
+
+    lightboxImage.src = images[currentIndex].src;
+    lightboxTitle.textContent = images[currentIndex].title;
+    lightboxCounter.textContent = `${currentIndex + 1} / ${images.length}`;
+}
+
+// Add the "View Gallery" button to each gallery item
+document.querySelectorAll('.gallery-item').forEach((item, index) => {
+    const button = document.createElement('button');
+    button.classList.add('action-btn', 'gallery-button', 'absolute', 'bottom-4', 'right-4', 'bg-blue-500', 'text-white', 'rounded', 'px-4', 'py-2', 'hover:bg-blue-700');
+    button.setAttribute('data-index', index);
+    button.textContent = 'View Gallery';
+    button.addEventListener('click', () => openGallery(index));
+    item.appendChild(button);
+});
+
+// Add click event listeners to the images
+document.querySelectorAll('.gallery-item img').forEach((img, index) => {
+    img.addEventListener('click', () => openGallery(index));
+});
+
+// Add a new "Explore Property" button
+const exploreButton = document.createElement('button');
+exploreButton.classList.add('action-btn', 'explore-button', 'absolute', 'bottom-4', 'left-4', 'bg-green-500', 'text-white', 'rounded', 'px-4', 'py-2', 'hover:bg-green-700');
+exploreButton.textContent = 'Explore Property';
+exploreButton.addEventListener('click', () => {
+    // Add your custom functionality here, e.g., navigate to a different page
+    console.log('Explore Property button clicked');
+});
+
+// Add the new button to the page
+document.querySelector('.gallery-container').appendChild(exploreButton);
+
+// Sample image data
 const images = [
     { src: 'image1.png', title: 'Juneau Vacation Rental | 2BR | 1BA | 1,115 Sq Ft | Stairs Required' },
     { src: 'image2.png', title: 'Exterior | Driveway (2 Vehicles) | RV Parking Allowed' },
@@ -122,50 +190,6 @@ const images = [
 ];
 
 let currentIndex = 0;
-
-// Function to open the gallery lightbox
-function openGallery(index) {
-    currentIndex = index;
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImage = document.getElementById('lightboxImage');
-    const lightboxTitle = document.getElementById('lightboxTitle');
-    const lightboxCounter = document.getElementById('lightboxCounter');
-
-    // Set the current image, title, and counter
-    lightboxImage.src = images[currentIndex].src;
-    lightboxTitle.textContent = images[currentIndex].title;
-    lightboxCounter.textContent = `${currentIndex + 1} / ${images.length}`;
-    lightbox.style.display = 'flex';
-}
-// Function to close the gallery lightbox
-function closeGallery() {
-    document.getElementById('lightbox').style.display = 'none';
-}
-
-// Function to navigate through the images
-function changeImage(direction) {
-    // Update current index
-    currentIndex += direction;
-
-    // Wrap around if going beyond the bounds of the array
-    if (currentIndex < 0) {
-        currentIndex = images.length - 1;
-    } else if (currentIndex >= images.length) {
-        currentIndex = 0;
-    }
-
-    // Update the lightbox content
-    const lightboxImage = document.getElementById('lightboxImage');
-    const lightboxTitle = document.getElementById('lightboxTitle');
-    const lightboxCounter = document.getElementById('lightboxCounter');
-
-    lightboxImage.src = images[currentIndex].src;
-    lightboxTitle.textContent = images[currentIndex].title;
-    lightboxCounter.textContent = `${currentIndex + 1} / ${images.length}`;
-}
-document.querySelectorAll('.gallery-item img').forEach((img, index) => {
-    img.addEventListener('click', () => openGallery(index));
-});
 const saveButton = document.getElementById('saveButton');
 let isFavorited = false;
 
@@ -186,4 +210,8 @@ saveButton.addEventListener('click', () => {
         localStorage.setItem('isFavorited', 'false');
     }
 });
-
+function showAllImages() {
+    // This function will show all images in the gallery
+    // Implement your gallery display logic here
+    alert("Displaying all images...");
+  }
